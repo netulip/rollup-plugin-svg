@@ -1,6 +1,6 @@
 {
 	"name": "@netulip/rollup-plugin-svg",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Use SVG files as components in React, Vue, and Svelte",
 	"scripts": {
 		"dev": "yarn build -- --watch",
