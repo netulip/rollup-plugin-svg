@@ -1,0 +1,54 @@
+{
+	"name": "@netulip/rollup-plugin-svg",
+	"version": "0.0.0",
+	"description": "Use SVG files as components in React, Vue, and Svelte",
+	"scripts": {
+		"dev": "yarn build -- --watch",
+		"test": "jest",
+		"build": "tsup src/index.ts --dts --format cjs,esm",
+		"prepublishOnly": "yarn build",
+		"format": "prettier --write .",
+		"release": "git-ensure --no-behind -b main --clean && bumpp --commit --tag --push"
+	},
+	"author": "Ted Meftah (https://github.com/tedmeftah/)",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/netulip/rollup-plugin-svg"
+	},
+	"bugs": "https://github.com/netulip/rollup-plugin-svg/issues",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"keywords": [
+		"rollup",
+		"vite",
+		"react",
+		"vue",
+		"svelte",
+		"svg",
+		"rollup-plugin",
+		"vite-plugin"
+	],
+	"devDependencies": {
+		"@rollup/plugin-node-resolve": "^11.2.1",
+		"@sveltejs/vite-plugin-svelte": "^1.0.0-next.7",
+		"@types/jest": "^26.0.22",
+		"@types/node": "^14.14.41",
+		"bumpp": "^6.0.6",
+		"git-ensure": "^0.1.0",
+		"jest": "^26.6.3",
+		"jest-esbuild": "^0.1.5",
+		"prettier": "^2.2.1",
+		"rollup": "^2.45.2",
+		"rollup-plugin-svelte": "^7.1.0",
+		"svelte": "^3.37.0",
+		"ts-node": "^9.1.1",
+		"tsup": "^4.8.21",
+		"typescript": "^4.2.3",
+		"vite": "^2.2.1"
+	}
+}

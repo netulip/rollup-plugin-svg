@@ -1,0 +1,31 @@
+name: Next
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn && yarn build
+      - run: mkdir build && cp -R dist build/ && cp package.json build/package.json
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: next
+          FOLDER: ./build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
